@@ -1,0 +1,38 @@
+plugins {
+  id "com.gradle.plugin-publish" version "0.9.6"
+}
+
+group = 'org.springframework.boot'
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile gradleApi()
+  compile localGroovy()
+  compile "org.springframework.boot:spring-boot-loader-tools:$version"
+  compile "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
+}
+
+pluginBundle {
+  website = 'http://projects.spring.io/spring-boot/'
+  vcsUrl = 'https://github.com/spring-projects/spring-boot/'
+
+  description = 'Spring Boot Gradle Plugin'
+
+  plugins {
+    springBootPlugin {
+      id = 'org.springframework.spring-boot'
+      displayName = 'Spring Boot Gradle Plugin'
+      tags = ['spring', 'springframework', 'springboot', 'boot']
+      version = version
+    }
+  }
+
+  mavenCoordinates {
+    groupId = "org.springframework.boot"
+    artifactId = "spring-boot-gradle-plugin"
+    version = version
+  }
+}
